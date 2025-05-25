@@ -7,6 +7,10 @@ import { Input } from '@/components/ui/input';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { useState } from 'react';
 import { Checkbox } from '@/components/ui/checkbox';
+import Image from 'next/image';
+
+import reactLogo from '@/public/react.png';
+import viteLogo from '@/public/vite.png';
 
 const techStacks = ['Next.js', 'React', 'Vite'] as const;
 const addons = [
@@ -114,26 +118,20 @@ export default function NewProjectPage() {
                               </svg>
                             )}
                             {stack === 'React' && (
-                              <svg
-                                viewBox="0 0 128 128"
-                                className="h-full w-full"
-                              >
-                                <path
-                                  d="M64.4 16a49 49 0 00-35 15 49 49 0 000 70 49 49 0 0070 0 49 49 0 000-70 49 49 0 00-35-15zm-9.4 79.1a30 30 0 01-42.5-42.5 30 30 0 0142.5 42.5zm56.6-56.6a30 30 0 01-42.5 42.5 30 30 0 0142.5-42.5z"
-                                  fill="currentColor"
-                                ></path>
-                              </svg>
+                              <Image
+                                src={reactLogo}
+                                width={50}
+                                height={50}
+                                alt="React logo"
+                              />
                             )}
                             {stack === 'Vite' && (
-                              <svg
-                                viewBox="0 0 128 128"
-                                className="h-full w-full"
-                              >
-                                <path
-                                  d="M112.905 25.669L67.166 122.88a3.5 3.5 0 01-6.332 0L15.095 25.669a3.5 3.5 0 013.166-5.003h91.478a3.5 3.5 0 013.166 5.003z"
-                                  fill="currentColor"
-                                ></path>
-                              </svg>
+                              <Image
+                                src={viteLogo}
+                                width={50}
+                                height={50}
+                                alt="Vite logo"
+                              />
                             )}
                           </div>
                         </Label>
@@ -168,10 +166,8 @@ export default function NewProjectPage() {
                   type="button"
                   onClick={handleGenerate}
                   disabled={isGenerating || !projectName.trim()}
-                  className={`w-full py-6 text-lg font-medium transition-all ${
-                    isGenerating
-                      ? 'bg-indigo-400'
-                      : 'bg-indigo-600 hover:bg-indigo-700'
+                  className={`max-w-2xl  py-6 text-lg font-medium transition-all ${
+                    isGenerating ? 'bg-[#555]' : 'bg-[#333] hover:bg-[#222]'
                   }`}
                 >
                   {isGenerating ? (
@@ -254,9 +250,9 @@ export default function NewProjectPage() {
                       <h3 className="text-sm font-medium text-gray-500">
                         Project Name
                       </h3>
-                      <p className="text-lg font-semibold text-gray-900">
+                      <p className="text-lg  text-gray-900">
                         {projectName || (
-                          <span className="italic text-gray-400">
+                          <span className="text-sm text-gray-500">
                             Unnamed project
                           </span>
                         )}
@@ -299,26 +295,20 @@ export default function NewProjectPage() {
                             </svg>
                           )}
                           {baseStack === 'React' && (
-                            <svg
-                              viewBox="0 0 128 128"
-                              className="h-full w-full"
-                            >
-                              <path
-                                d="M64.4 16a49 49 0 00-35 15 49 49 0 000 70 49 49 0 0070 0 49 49 0 000-70 49 49 0 00-35-15zm-9.4 79.1a30 30 0 01-42.5-42.5 30 30 0 0142.5 42.5zm56.6-56.6a30 30 0 01-42.5 42.5 30 30 0 0142.5-42.5z"
-                                fill="#61DAFB"
-                              ></path>
-                            </svg>
+                            <Image
+                              src={reactLogo}
+                              width={50}
+                              height={50}
+                              alt="React logo"
+                            />
                           )}
                           {baseStack === 'Vite' && (
-                            <svg
-                              viewBox="0 0 128 128"
-                              className="h-full w-full"
-                            >
-                              <path
-                                d="M112.905 25.669L67.166 122.88a3.5 3.5 0 01-6.332 0L15.095 25.669a3.5 3.5 0 013.166-5.003h91.478a3.5 3.5 0 013.166 5.003z"
-                                fill="#646CFF"
-                              ></path>
-                            </svg>
+                            <Image
+                              src={viteLogo}
+                              width={50}
+                              height={50}
+                              alt="Vite logo"
+                            />
                           )}
                         </div>
                         <p className="text-lg font-semibold text-gray-900">
