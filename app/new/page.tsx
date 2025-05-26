@@ -12,6 +12,8 @@ import Image from 'next/image';
 import reactLogo from '@/public/react.png';
 import viteLogo from '@/public/vite.png';
 import { supabase } from '@/lib/supabase';
+import { Toaster } from '@/components/ui/toaster';
+import { toast } from '@/hooks/use-toast';
 
 const techStacks = ['Next.js', 'React', 'Vite'] as const;
 const addons = [
@@ -51,9 +53,18 @@ export default function NewProjectPage() {
     if (error) {
       console.error('Insert failed:', error.message);
       // show user error
+      toast({
+        title: 'Insert failed ❌',
+        description: error.message || 'Something went wrong.',
+        variant: 'destructive',
+      });
     } else {
       console.log('Insert successful:', data);
       // show success, redirect, etc.
+      toast({
+        title: 'Project Created 🎉',
+        description: 'Your project was added successfully.',
+      });
 
       setProjectName('');
       setBaseStack('Next.js');
