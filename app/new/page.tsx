@@ -12,7 +12,6 @@ import Image from 'next/image';
 import reactLogo from '@/public/react.png';
 import viteLogo from '@/public/vite.png';
 import { supabase } from '@/lib/supabase';
-import { Toaster } from '@/components/ui/toaster';
 import { toast } from '@/hooks/use-toast';
 
 const techStacks = ['Next.js', 'React', 'Vite'] as const;
@@ -116,7 +115,7 @@ export default function NewProjectPage() {
                   <RadioGroup
                     value={baseStack}
                     onValueChange={setBaseStack}
-                    className="grid grid-cols-3 gap-3 mt-2"
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-2"
                   >
                     {techStacks.map((stack) => (
                       <div key={stack}>
@@ -169,7 +168,7 @@ export default function NewProjectPage() {
 
                 <div className="space-y-3">
                   <Label className="text-gray-700 block">Add-ons</Label>
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-1">
                     {addons.map((addon) => (
                       <div key={addon} className="flex items-center space-x-2">
                         <Checkbox
