@@ -11,6 +11,7 @@ import Image from 'next/image';
 
 import reactLogo from '@/public/react.png';
 import viteLogo from '@/public/vite.png';
+import { supabase } from '@/lib/supabase';
 
 const techStacks = ['Next.js', 'React', 'Vite'] as const;
 const addons = [
@@ -35,16 +36,31 @@ export default function NewProjectPage() {
     );
   };
 
-  const handleGenerate = () => {
+  const handleGenerate = async () => {
     setIsGenerating(true);
-    setTimeout(() => {
-      setIsGenerating(false);
-      console.log({
-        projectName,
-        baseStack,
-        selectedAddons,
-      });
-    }, 1500);
+    const { data, error } = await supabase.from('Projects').insert([
+      {
+        name: projectName,
+        stack: baseStack,
+        addons: selectedAddons,
+        status: 'in-progress',
+        created_at: new Date().toISOString(),
+      },
+    ]);
+
+    if (error) {
+      console.error('Insert failed:', error.message);
+      // show user error
+    } else {
+      console.log('Insert successful:', data);
+      // show success, redirect, etc.
+
+      setProjectName('');
+      setBaseStack('Next.js');
+      setSelectedAddons([]);
+    }
+
+    setIsGenerating(false);
   };
 
   return (
