@@ -233,7 +233,7 @@ export default function NewProjectPage() {
                     <div className="p-2 bg-indigo-100 rounded-lg">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5 text-indigo-600"
+                        className="h-5 w-5 text-slate-900"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -264,7 +264,7 @@ export default function NewProjectPage() {
                     <div className="p-2 bg-indigo-100 rounded-lg">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5 text-indigo-600"
+                        className="h-5 w-5 text-slate-900"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -322,7 +322,7 @@ export default function NewProjectPage() {
                     <div className="p-2 bg-indigo-100 rounded-lg">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5 text-indigo-600"
+                        className="h-5 w-5 text-slate-900"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
